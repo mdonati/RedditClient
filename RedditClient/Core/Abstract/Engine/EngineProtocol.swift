@@ -10,6 +10,8 @@ import Foundation
 
 protocol EngineProtocol {
     
+    var appAuthInfo : AppAuthInfo? { get }
+    
     func fetchTopFeed(limit : Int, after : String?, count : Int?, success : @escaping (_ results : ListingProtocol) -> Void, failure : @escaping (_ error : Error) -> Void)
     
 }

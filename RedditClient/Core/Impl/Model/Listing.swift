@@ -8,25 +8,34 @@
 
 import Foundation
 
-struct Listing : ListingProtocol, MappableProtocol {
+struct Listing<ListingChildrenType : MappableProtocol> : ListingProtocol, MappableProtocol {
+    
+    typealias ChildrenType = ListingChildrenType
     
     var after : String?
     var before : String?
-    var count: Int
-    var limit : Int
     var show : String?
+    var children: [RedditProtocol]
     
     init?(dictionary: [String : Any]) {
         
-        guard let count = dictionary["count"] as? Int, let limit = dictionary["limit"] as? Int else {
+        guard let data = dictionary["data"] as? [String : Any] else {
             return nil
         }
         
-        self.after = dictionary["after"] as? String
-        self.before = dictionary["before"] as? String
-        self.show = dictionary["show"] as? String
-        self.limit = limit
-        self.count = count
+        self.after = data["after"] as? String
+        self.before = data["before"] as? String
+        self.show = data["show"] as? String
+        
+        var children = [Reddit]()
+        if let childrenDicts = data["children"] as? [[String : Any]] {
+            for childrenDict in childrenDicts {
+                if let child = Reddit(dictionary: childrenDict) {
+                    children.append(child)
+                }
+            }
+        }
+        self.children = children
         
     }
     

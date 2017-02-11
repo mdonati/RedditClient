@@ -8,15 +8,39 @@
 
 import Foundation
 
-fileprivate let baseURL = "https://www.reddit.com/api/v1/"
+enum AuthType {
+    
+    case None
+    case Basic
+    case App
+    
+}
+
+fileprivate let baseURL = "https://www.reddit.com/"
 
 class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation<JSONResponseSerializer> {
+    
+    var engine : EngineProtocol!
     
     var success : ((_ response : ResponseType) -> Void)?
     var failure : ((_ error : Error) -> Void)?
     
+    var authType : AuthType = .App
+    
     init(httpMethod : HTTPMethod, endPoint : EndPoint) {
         super.init(httpMethod: httpMethod, url: URL(string: baseURL.appending(endPoint.rawValue))!)
+    }
+    
+    override func main() {
+        switch self.authType {
+        case .Basic:
+            self.setBasicAuth()
+        case .App:
+            self.setAppAuth()
+        default:
+            break
+        }
+        super.main()
     }
     
     override func handleResult(result: [String : Any]) {
@@ -39,6 +63,18 @@ class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation
             errorToFailWith = super.createCustomError(requestError: UnknownError, underlyingError: nil)
         }
         self.failure?(errorToFailWith)
+    }
+    
+    private func setBasicAuth() {
+        let userPasswordString = "7a9EaA3EFbjpEA:nopassword"
+        let userPasswordData = userPasswordString.data(using: .utf8)
+        let base64EncodedCredential = userPasswordData!.base64EncodedString()
+        let authString = "Basic \(base64EncodedCredential)"
+        self.headers["Authorization"] = authString
+    }
+    
+    private func setAppAuth() {
+        self.headers["Authorization"] = "Bearer \(self.engine.appAuthInfo!.accessToken)"
     }
     
 }

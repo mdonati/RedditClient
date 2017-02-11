@@ -14,20 +14,12 @@ class AppAuthOperation : RedditRequestOperation<AppAuthInfo> {
     
     init() {
         super.init(httpMethod: .POST, endPoint: .AccessToken)
-        self.setBasicAuth()
+        self.authType = .Basic
         self.setParameters()
     }
     
     private override init(httpMethod: HTTPMethod, endPoint: EndPoint) {
         super.init(httpMethod: httpMethod, endPoint: endPoint)
-    }
-    
-    private func setBasicAuth() {
-        let userPasswordString = "7a9EaA3EFbjpEA:nopassword"
-        let userPasswordData = userPasswordString.data(using: .utf8)
-        let base64EncodedCredential = userPasswordData!.base64EncodedString()
-        let authString = "Basic \(base64EncodedCredential)"
-        self.headers["Authorization"] = authString
     }
     
     private func setParameters() {

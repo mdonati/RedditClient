@@ -72,7 +72,7 @@ class RequestOperation<ResponseSerializerType : ResponseSerializerProtocol> : Ba
                     } else {
                         self.handleFailure(response: response, error: self.createCustomError(requestError: UnprocessableResponse, underlyingError: error))
                     }
-                case 401:
+                case 401, 403:
                     self.handleFailure(response: response, error: self.createCustomError(requestError: UnauthorizedRequestError, underlyingError: error))
                 default:
                     self.handleFailure(response : response, error: error)

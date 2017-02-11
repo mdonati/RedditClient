@@ -9,11 +9,10 @@
 import Foundation
 
 protocol ListingProtocol {
-    
+        
     var after : String? { get }
     var before : String? { get }
-    var limit : Int { get }
-    var count : Int { get }
     var show : String? { get }
+    var children : [RedditProtocol] { get }
     
 }

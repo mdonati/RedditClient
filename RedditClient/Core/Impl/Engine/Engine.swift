@@ -10,7 +10,8 @@ import Foundation
 
 enum EndPoint : String {
     
-    case AccessToken = "access_token"
+    case AccessToken = "api/v1/access_token"
+    case TopFeed = "top.json"
     
 }
 
@@ -26,18 +27,20 @@ class Engine : EngineProtocol {
     //MARK: -Engine
     
     func fetchTopFeed(limit: Int, after: String?, count: Int?, success: @escaping (ListingProtocol) -> Void, failure: @escaping (Error) -> Void) {
-        self.submitOperation(operation: BlockOperation(block: { 
-            print("OK")
-        }))
+        let topFeedOperation = TopFeedOperation(type: "day")
+        topFeedOperation.success = success
+        topFeedOperation.failure = failure
+        self.submitOperation(operation: topFeedOperation)
     }
     
     //MARK: -Helpers
     
-    private func submitOperation(operation : Operation) {
+    private func submitOperation<T>(operation : RedditRequestOperation<T>) {
         if self.appAuthInfo == nil || Date() > self.appAuthInfo!.expiresIn {
             let authOperation = self.getCurrentAuthOperation()
             operation.addDependency(authOperation)
         }
+        operation.engine = self
         self.queue.addOperation(operation)
     }
     
