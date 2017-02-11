@@ -8,15 +8,13 @@
 
 import Foundation
 
-fileprivate enum EndPoint : String {
+enum EndPoint : String {
     
     case AccessToken = "access_token"
     
 }
 
-class Engine : EngineProtocol, AuthenticatorProtocol {
-    
-    typealias ListingType = Listing
+class Engine : EngineProtocol {
     
     private let queue : OperationQueue
     var appAuthInfo : AppAuthInfo?
@@ -27,21 +25,19 @@ class Engine : EngineProtocol, AuthenticatorProtocol {
     
     //MARK: -Engine
     
-    func fetchTopFeed(limit: Int, after: String?, count: Int?, success: @escaping (ListingType) -> Void, failure: @escaping (Error) -> Void) {
-        
-    }
-    
-    //MARK: -Authenticator
-    
-    func authenticate(success: @escaping (AppAuthInfo) -> Void, failure: (Error) -> Void) {
-        
+    func fetchTopFeed(limit: Int, after: String?, count: Int?, success: @escaping (ListingProtocol) -> Void, failure: @escaping (Error) -> Void) {
+        self.submitOperation(operation: BlockOperation(block: { 
+            print("OK")
+        }))
     }
     
     //MARK: -Helpers
     
-    private func submitBaseAuthOperation(operation : Operation) {
-        let authOperation = self.getCurrentAuthOperation()
-        operation.addDependency(authOperation)
+    private func submitOperation(operation : Operation) {
+        if self.appAuthInfo == nil || Date() > self.appAuthInfo!.expiresIn {
+            let authOperation = self.getCurrentAuthOperation()
+            operation.addDependency(authOperation)
+        }
         self.queue.addOperation(operation)
     }
     
@@ -51,7 +47,16 @@ class Engine : EngineProtocol, AuthenticatorProtocol {
                 return operation
             }
         }
-        let authOperation = AppAuthOperation(authenticator : self)
+        let authOperation = AppAuthOperation()
+        
+        authOperation.success = { (authInfo) -> Void in
+            self.appAuthInfo = authInfo
+        }
+        
+        authOperation.failure = { (error) -> Void in
+            print("App authorization failed: \(error)")
+        }
+        
         self.queue.addOperation(authOperation)
         return authOperation
     }

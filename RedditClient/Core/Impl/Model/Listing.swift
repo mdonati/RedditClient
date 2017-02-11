@@ -16,7 +16,7 @@ struct Listing : ListingProtocol, MappableProtocol {
     var limit : Int
     var show : String?
     
-    init?(dictionary: [String : AnyObject]) {
+    init?(dictionary: [String : Any]) {
         
         guard let count = dictionary["count"] as? Int, let limit = dictionary["limit"] as? Int else {
             return nil

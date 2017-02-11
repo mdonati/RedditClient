@@ -8,28 +8,31 @@
 
 import Foundation
 
-class AppAuthOperation : BaseOperation {
+class AppAuthOperation : RedditRequestOperation<AppAuthInfo> {
     
-    private var authenticator : AuthenticatorProtocol
+    private static let GrantType = "https://oauth.reddit.com/grants/installed_client"
     
-    init(authenticator : AuthenticatorProtocol) {
-        self.authenticator = authenticator
+    init() {
+        super.init(httpMethod: .POST, endPoint: .AccessToken)
+        self.setBasicAuth()
+        self.setParameters()
     }
     
-    override func main() {
-        
-        if let currentAuthInfo = self.authenticator.appAuthInfo, Date() < currentAuthInfo.expiresIn {
-            self.finish()
-            return
-        }
-        
-        self.authenticator.authenticate(success: { (authInfo) in
-            self.authenticator.appAuthInfo = authInfo
-            self.finish()
-        }) { (error) in
-            self.finish()
-        }
-        
+    private override init(httpMethod: HTTPMethod, endPoint: EndPoint) {
+        super.init(httpMethod: httpMethod, endPoint: endPoint)
+    }
+    
+    private func setBasicAuth() {
+        let userPasswordString = "7a9EaA3EFbjpEA:nopassword"
+        let userPasswordData = userPasswordString.data(using: .utf8)
+        let base64EncodedCredential = userPasswordData!.base64EncodedString()
+        let authString = "Basic \(base64EncodedCredential)"
+        self.headers["Authorization"] = authString
+    }
+    
+    private func setParameters() {
+        self.parameters["grant_type"] = AppAuthOperation.GrantType
+        self.parameters["device_id"] = UUID().uuidString
     }
     
 }

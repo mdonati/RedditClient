@@ -1,5 +1,5 @@
 //
-//  MappableProtocol.swift
+//  AppRoot.swift
 //  RedditClient
 //
 //  Created by Mariano on 11/2/17.
@@ -8,8 +8,12 @@
 
 import Foundation
 
-protocol MappableProtocol {
+class AppRoot {
     
-    init?(dictionary : [String : Any])
+    static let engine : EngineProtocol = Engine()
+    
+    private init() {
+        
+    }
     
 }

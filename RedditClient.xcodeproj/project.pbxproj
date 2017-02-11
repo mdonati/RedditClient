@@ -19,9 +19,13 @@
 		D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF571E4F7CAD0027AFF9 /* Listing.swift */; };
 		D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */; };
 		D591CF5D1E4F82710027AFF9 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */; };
-		D591CF5F1E4F82940027AFF9 /* AppAuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */; };
-		D591CF611E4F83B80027AFF9 /* AuthenticatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */; };
 		D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF621E4F87660027AFF9 /* RequestOperation.swift */; };
+		D591CF681E4F9B530027AFF9 /* JSONResponseSerializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF671E4F9B530027AFF9 /* JSONResponseSerializer.swift */; };
+		D591CF6A1E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF691E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift */; };
+		D591CF6C1E4F9FE40027AFF9 /* RedditRequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF6B1E4F9FE40027AFF9 /* RedditRequestOperation.swift */; };
+		D591CF6E1E4FA34F0027AFF9 /* AppAuthInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF6D1E4FA34F0027AFF9 /* AppAuthInfo.swift */; };
+		D591CF701E4FA3DF0027AFF9 /* AppAuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF6F1E4FA3DF0027AFF9 /* AppAuthOperation.swift */; };
+		D591CF721E4FA76B0027AFF9 /* AppRoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF711E4FA76B0027AFF9 /* AppRoot.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,9 +43,13 @@
 		D591CF571E4F7CAD0027AFF9 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
 		D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
-		D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthOperation.swift; sourceTree = "<group>"; };
-		D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorProtocol.swift; sourceTree = "<group>"; };
 		D591CF621E4F87660027AFF9 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
+		D591CF671E4F9B530027AFF9 /* JSONResponseSerializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONResponseSerializer.swift; sourceTree = "<group>"; };
+		D591CF691E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseSerializerProtocol.swift; sourceTree = "<group>"; };
+		D591CF6B1E4F9FE40027AFF9 /* RedditRequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RedditRequestOperation.swift; sourceTree = "<group>"; };
+		D591CF6D1E4FA34F0027AFF9 /* AppAuthInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthInfo.swift; sourceTree = "<group>"; };
+		D591CF6F1E4FA3DF0027AFF9 /* AppAuthOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthOperation.swift; sourceTree = "<group>"; };
+		D591CF711E4FA76B0027AFF9 /* AppRoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppRoot.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				D591CF421E4F73A30027AFF9 /* AppDelegate.swift */,
+				D591CF711E4FA76B0027AFF9 /* AppRoot.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -131,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */,
-				D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -160,6 +168,7 @@
 			children = (
 				D591CF551E4F7C230027AFF9 /* Engine.swift */,
 				D591CF5B1E4F825C0027AFF9 /* Operations */,
+				D591CF661E4F9B380027AFF9 /* Serializers */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -167,6 +176,7 @@
 		D591CF4E1E4F74320027AFF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D591CF6D1E4FA34F0027AFF9 /* AppAuthInfo.swift */,
 				D591CF571E4F7CAD0027AFF9 /* Listing.swift */,
 			);
 			path = Model;
@@ -176,10 +186,20 @@
 			isa = PBXGroup;
 			children = (
 				D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */,
-				D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */,
 				D591CF621E4F87660027AFF9 /* RequestOperation.swift */,
+				D591CF6B1E4F9FE40027AFF9 /* RedditRequestOperation.swift */,
+				D591CF6F1E4FA3DF0027AFF9 /* AppAuthOperation.swift */,
 			);
 			path = Operations;
+			sourceTree = "<group>";
+		};
+		D591CF661E4F9B380027AFF9 /* Serializers */ = {
+			isa = PBXGroup;
+			children = (
+				D591CF691E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift */,
+				D591CF671E4F9B530027AFF9 /* JSONResponseSerializer.swift */,
+			);
+			path = Serializers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -256,7 +276,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D591CF521E4F76250027AFF9 /* EntryProtocol.swift in Sources */,
-				D591CF5F1E4F82940027AFF9 /* AppAuthOperation.swift in Sources */,
+				D591CF701E4FA3DF0027AFF9 /* AppAuthOperation.swift in Sources */,
+				D591CF681E4F9B530027AFF9 /* JSONResponseSerializer.swift in Sources */,
 				D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */,
 				D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */,
 				D591CF561E4F7C230027AFF9 /* Engine.swift in Sources */,
@@ -264,9 +285,12 @@
 				D591CF541E4F77DD0027AFF9 /* ListingProtocol.swift in Sources */,
 				D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */,
 				D591CF5D1E4F82710027AFF9 /* BaseOperation.swift in Sources */,
+				D591CF6A1E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift in Sources */,
+				D591CF6E1E4FA34F0027AFF9 /* AppAuthInfo.swift in Sources */,
 				D591CF471E4F73AA0027AFF9 /* ViewController.swift in Sources */,
+				D591CF721E4FA76B0027AFF9 /* AppRoot.swift in Sources */,
+				D591CF6C1E4F9FE40027AFF9 /* RedditRequestOperation.swift in Sources */,
 				D591CF431E4F73A30027AFF9 /* AppDelegate.swift in Sources */,
-				D591CF611E4F83B80027AFF9 /* AuthenticatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,8 +10,6 @@ import Foundation
 
 protocol EngineProtocol {
     
-    associatedtype ListingType : ListingProtocol
-    
-    func fetchTopFeed(limit : Int, after : String?, count : Int?, success : @escaping (_ results : ListingType) -> Void, failure : @escaping (_ error : Error) -> Void)
+    func fetchTopFeed(limit : Int, after : String?, count : Int?, success : @escaping (_ results : ListingProtocol) -> Void, failure : @escaping (_ error : Error) -> Void)
     
 }
