@@ -8,11 +8,13 @@
 
 import Foundation
 
-class AppRoot {
+let appRoot = AppRoot<NSURLSessionEngine>()
+
+class AppRoot<EngineType : EngineProtocol> {
     
-    static let engine : EngineProtocol = Engine()
+    let engine : EngineType = EngineType()
     
-    private init() {
+    init() {
         
     }
     

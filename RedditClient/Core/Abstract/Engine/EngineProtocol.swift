@@ -8,10 +8,25 @@
 
 import Foundation
 
+enum TimeLimit : String {
+    
+    case Hour = "hour"
+    case Day = "day"
+    case Week = "week"
+    case Month = "month"
+    case Year = "year"
+    case All = "all"
+    
+}
+
 protocol EngineProtocol {
+    
+    associatedtype TopFeedListingType : ListingProtocol
+    
+    init()
     
     var appAuthInfo : AppAuthInfo? { get }
     
-    func fetchTopFeed(limit : Int, after : String?, count : Int?, success : @escaping (_ results : ListingProtocol) -> Void, failure : @escaping (_ error : Error) -> Void)
+    func fetchTopFeed(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?, success : @escaping (_ results : TopFeedListingType) -> Void, failure : @escaping (_ error : Error) -> Void)
     
 }

@@ -20,7 +20,7 @@ fileprivate let baseURL = "https://www.reddit.com/"
 
 class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation<JSONResponseSerializer> {
     
-    var engine : EngineProtocol!
+    var engine : NSURLSessionEngine!
     
     var success : ((_ response : ResponseType) -> Void)?
     var failure : ((_ error : Error) -> Void)?

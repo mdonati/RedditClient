@@ -15,7 +15,7 @@ struct Listing<ListingChildrenType : MappableProtocol> : ListingProtocol, Mappab
     var after : String?
     var before : String?
     var show : String?
-    var children: [RedditProtocol]
+    var children: [ListingChildrenType]
     
     init?(dictionary: [String : Any]) {
         
@@ -27,10 +27,10 @@ struct Listing<ListingChildrenType : MappableProtocol> : ListingProtocol, Mappab
         self.before = data["before"] as? String
         self.show = data["show"] as? String
         
-        var children = [Reddit]()
+        var children = [ListingChildrenType]()
         if let childrenDicts = data["children"] as? [[String : Any]] {
             for childrenDict in childrenDicts {
-                if let child = Reddit(dictionary: childrenDict) {
+                if let child = ListingChildrenType(dictionary: childrenDict) {
                     children.append(child)
                 }
             }

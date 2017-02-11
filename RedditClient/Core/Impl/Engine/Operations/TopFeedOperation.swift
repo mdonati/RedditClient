@@ -10,11 +10,9 @@ import Foundation
 
 class TopFeedOperation : RedditRequestOperation<Listing<Reddit>> {
     
-    let type : String
-    
-    init(type : String) {
-        self.type = type
+    init(timeLimit : TimeLimit) {
         super.init(httpMethod: .GET, endPoint: .TopFeed)
+        self.parameters["t"] = timeLimit.rawValue
     }
     
 }

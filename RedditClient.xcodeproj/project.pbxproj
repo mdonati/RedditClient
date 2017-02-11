@@ -14,7 +14,7 @@
 		D591CF471E4F73AA0027AFF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF461E4F73AA0027AFF9 /* ViewController.swift */; };
 		D591CF501E4F75A80027AFF9 /* EngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */; };
 		D591CF541E4F77DD0027AFF9 /* ListingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF531E4F77DD0027AFF9 /* ListingProtocol.swift */; };
-		D591CF561E4F7C230027AFF9 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF551E4F7C230027AFF9 /* Engine.swift */; };
+		D591CF561E4F7C230027AFF9 /* NSURLSessionEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF551E4F7C230027AFF9 /* NSURLSessionEngine.swift */; };
 		D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF571E4F7CAD0027AFF9 /* Listing.swift */; };
 		D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */; };
 		D591CF5D1E4F82710027AFF9 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */; };
@@ -40,7 +40,7 @@
 		D591CF461E4F73AA0027AFF9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineProtocol.swift; sourceTree = "<group>"; };
 		D591CF531E4F77DD0027AFF9 /* ListingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingProtocol.swift; sourceTree = "<group>"; };
-		D591CF551E4F7C230027AFF9 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		D591CF551E4F7C230027AFF9 /* NSURLSessionEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLSessionEngine.swift; sourceTree = "<group>"; };
 		D591CF571E4F7CAD0027AFF9 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
 		D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
 		D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
@@ -170,7 +170,7 @@
 		D591CF4D1E4F74320027AFF9 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
-				D591CF551E4F7C230027AFF9 /* Engine.swift */,
+				D591CF551E4F7C230027AFF9 /* NSURLSessionEngine.swift */,
 				D591CF5B1E4F825C0027AFF9 /* Operations */,
 				D591CF661E4F9B380027AFF9 /* Serializers */,
 			);
@@ -287,7 +287,7 @@
 				D591CF681E4F9B530027AFF9 /* JSONResponseSerializer.swift in Sources */,
 				D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */,
 				D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */,
-				D591CF561E4F7C230027AFF9 /* Engine.swift in Sources */,
+				D591CF561E4F7C230027AFF9 /* NSURLSessionEngine.swift in Sources */,
 				D591CF501E4F75A80027AFF9 /* EngineProtocol.swift in Sources */,
 				D591CF541E4F77DD0027AFF9 /* ListingProtocol.swift in Sources */,
 				D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */,
