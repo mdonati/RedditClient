@@ -10,9 +10,17 @@ import Foundation
 
 class TopFeedOperation : RedditRequestOperation<Listing<Reddit>> {
     
-    init(timeLimit : TimeLimit) {
+    init(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?) {
         super.init(httpMethod: .GET, endPoint: .TopFeed)
         self.parameters["t"] = timeLimit.rawValue
+        self.parameters["limit"] = limit
+        if let after = after {
+            self.parameters["after"] = after
+        }
+        
+        if let count = count {
+            self.parameters["count"] = count
+        }
     }
     
 }
