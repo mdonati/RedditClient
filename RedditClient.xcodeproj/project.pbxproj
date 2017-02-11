@@ -12,6 +12,16 @@
 		D591CF3A1E4F731E0027AFF9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D591CF381E4F731E0027AFF9 /* LaunchScreen.storyboard */; };
 		D591CF431E4F73A30027AFF9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF421E4F73A30027AFF9 /* AppDelegate.swift */; };
 		D591CF471E4F73AA0027AFF9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF461E4F73AA0027AFF9 /* ViewController.swift */; };
+		D591CF501E4F75A80027AFF9 /* EngineProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */; };
+		D591CF521E4F76250027AFF9 /* EntryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF511E4F76250027AFF9 /* EntryProtocol.swift */; };
+		D591CF541E4F77DD0027AFF9 /* ListingProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF531E4F77DD0027AFF9 /* ListingProtocol.swift */; };
+		D591CF561E4F7C230027AFF9 /* Engine.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF551E4F7C230027AFF9 /* Engine.swift */; };
+		D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF571E4F7CAD0027AFF9 /* Listing.swift */; };
+		D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */; };
+		D591CF5D1E4F82710027AFF9 /* BaseOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */; };
+		D591CF5F1E4F82940027AFF9 /* AppAuthOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */; };
+		D591CF611E4F83B80027AFF9 /* AuthenticatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */; };
+		D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF621E4F87660027AFF9 /* RequestOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +32,16 @@
 		D591CF3B1E4F731E0027AFF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D591CF421E4F73A30027AFF9 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D591CF461E4F73AA0027AFF9 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EngineProtocol.swift; sourceTree = "<group>"; };
+		D591CF511E4F76250027AFF9 /* EntryProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryProtocol.swift; sourceTree = "<group>"; };
+		D591CF531E4F77DD0027AFF9 /* ListingProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListingProtocol.swift; sourceTree = "<group>"; };
+		D591CF551E4F7C230027AFF9 /* Engine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Engine.swift; sourceTree = "<group>"; };
+		D591CF571E4F7CAD0027AFF9 /* Listing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Listing.swift; sourceTree = "<group>"; };
+		D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappableProtocol.swift; sourceTree = "<group>"; };
+		D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseOperation.swift; sourceTree = "<group>"; };
+		D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppAuthOperation.swift; sourceTree = "<group>"; };
+		D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorProtocol.swift; sourceTree = "<group>"; };
+		D591CF621E4F87660027AFF9 /* RequestOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +130,8 @@
 		D591CF4A1E4F74320027AFF9 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */,
+				D591CF601E4F83B80027AFF9 /* AuthenticatorProtocol.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -117,6 +139,9 @@
 		D591CF4B1E4F74320027AFF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D591CF591E4F7D090027AFF9 /* MappableProtocol.swift */,
+				D591CF531E4F77DD0027AFF9 /* ListingProtocol.swift */,
+				D591CF511E4F76250027AFF9 /* EntryProtocol.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -133,6 +158,8 @@
 		D591CF4D1E4F74320027AFF9 /* Engine */ = {
 			isa = PBXGroup;
 			children = (
+				D591CF551E4F7C230027AFF9 /* Engine.swift */,
+				D591CF5B1E4F825C0027AFF9 /* Operations */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -140,8 +167,19 @@
 		D591CF4E1E4F74320027AFF9 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D591CF571E4F7CAD0027AFF9 /* Listing.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		D591CF5B1E4F825C0027AFF9 /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				D591CF5C1E4F82710027AFF9 /* BaseOperation.swift */,
+				D591CF5E1E4F82940027AFF9 /* AppAuthOperation.swift */,
+				D591CF621E4F87660027AFF9 /* RequestOperation.swift */,
+			);
+			path = Operations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -217,8 +255,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D591CF521E4F76250027AFF9 /* EntryProtocol.swift in Sources */,
+				D591CF5F1E4F82940027AFF9 /* AppAuthOperation.swift in Sources */,
+				D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */,
+				D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */,
+				D591CF561E4F7C230027AFF9 /* Engine.swift in Sources */,
+				D591CF501E4F75A80027AFF9 /* EngineProtocol.swift in Sources */,
+				D591CF541E4F77DD0027AFF9 /* ListingProtocol.swift in Sources */,
+				D591CF5A1E4F7D090027AFF9 /* MappableProtocol.swift in Sources */,
+				D591CF5D1E4F82710027AFF9 /* BaseOperation.swift in Sources */,
 				D591CF471E4F73AA0027AFF9 /* ViewController.swift in Sources */,
 				D591CF431E4F73A30027AFF9 /* AppDelegate.swift in Sources */,
+				D591CF611E4F83B80027AFF9 /* AuthenticatorProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +429,7 @@
 				D591CF401E4F731E0027AFF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
