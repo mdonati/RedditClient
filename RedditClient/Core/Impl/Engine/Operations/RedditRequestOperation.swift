@@ -25,7 +25,7 @@ class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation
     var success : ((_ response : ResponseType) -> Void)?
     var failure : ((_ error : Error) -> Void)?
     
-    var authType : AuthType = .App
+    var authType : AuthType = .None
     
     init(httpMethod : HTTPMethod, endPoint : EndPoint) {
         super.init(httpMethod: httpMethod, url: URL(string: baseURL.appending(endPoint.rawValue))!)

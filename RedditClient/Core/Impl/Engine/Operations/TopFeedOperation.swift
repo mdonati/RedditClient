@@ -15,7 +15,6 @@ class TopFeedOperation : RedditRequestOperation<Listing<Reddit>> {
     init(type : String) {
         self.type = type
         super.init(httpMethod: .GET, endPoint: .TopFeed)
-        self.authType = .None
     }
     
 }
