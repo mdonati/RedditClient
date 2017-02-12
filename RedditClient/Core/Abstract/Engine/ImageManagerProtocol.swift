@@ -13,6 +13,6 @@ protocol ImageManagerProtocol {
     
     init(imageCache : ImageCacheProtocol)
     
-    func getImage(url : URL, completion : @escaping (_ image : UIImage?) -> Void)
+    func getImage(url : URL, completion : @escaping (_ image : UIImage?, _ url : URL) -> Void)
     
 }

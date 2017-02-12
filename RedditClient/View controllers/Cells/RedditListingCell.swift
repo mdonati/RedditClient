@@ -17,4 +17,9 @@ class RedditListingCell : UITableViewCell, RedditListingCellProtocol {
     @IBOutlet weak var thumbImageView : UIImageView!
     @IBOutlet weak var commentsCountLabel : UILabel!
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        self.thumbImageView.image = nil
+    }
+    
 }

@@ -8,12 +8,17 @@
 
 import Foundation
 
+private enum ThumbnailInvalidTypes : String {
+    case selfPost = "self"
+    case nsfw = "nsfw"
+}
+
 struct Reddit : RedditProtocol, MappableProtocol {
     
     var title : String
     var author : String
-    var thumbnailImageURL : String?
-    var fullSizeImageURL : String?
+    var thumbnailImageURL : URL?
+    var fullSizeImageURL : URL?
     var date : Date
     var commentsCount : Int
     
@@ -29,14 +34,22 @@ struct Reddit : RedditProtocol, MappableProtocol {
         self.date = Date(timeIntervalSince1970: utcEpoc)
         self.commentsCount = commentsCount
         self.title = title
-        self.thumbnailImageURL = data["thumbnail"] as? String
+        
+        if let thumbURLString = data["thumbnail"] as? String, self.isThumbnailValid(thumbURL: thumbURLString) {
+            self.thumbnailImageURL = URL(string: thumbURLString)
+        }
         
         //Try to get full-size image URL
         if let preview = data["preview"] as? [String : Any],
-            let images = preview["images"] as? [[String : [String : Any]]],
-            let mainImage = images.first?["source"] {
-            self.fullSizeImageURL = mainImage["url"] as? String
+            let images = preview["images"] as? [[String : Any]],
+            let mainImage = images.first?["source"] as? [String : Any],
+            let mainImageURLString = mainImage["url"] as? String {
+            self.fullSizeImageURL = URL(string: mainImageURLString)
         }
+    }
+    
+    private func isThumbnailValid(thumbURL : String) -> Bool {
+        return ThumbnailInvalidTypes(rawValue: thumbURL) == nil
     }
     
 }

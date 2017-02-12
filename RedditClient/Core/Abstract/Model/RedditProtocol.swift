@@ -12,8 +12,8 @@ protocol RedditProtocol {
     
     var title : String { get }
     var author : String { get }
-    var thumbnailImageURL : String? { get }
-    var fullSizeImageURL : String? { get }
+    var thumbnailImageURL : URL? { get }
+    var fullSizeImageURL : URL? { get }
     var date : Date { get }
     var commentsCount : Int { get }
     

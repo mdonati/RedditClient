@@ -18,11 +18,11 @@ class NSCacheImageCache : ImageCacheProtocol {
     }
     
     func getImage(key: String) -> UIImage? {
-        return nil
+        return self.cache.object(forKey: NSString(string: key))
     }
     
     func setImage(image: UIImage, forKey key: String) {
-        
+        self.cache.setObject(image, forKey: NSString(string : key))
     }
     
 }
