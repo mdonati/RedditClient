@@ -33,6 +33,10 @@
 		D591CF841E500D170027AFF9 /* TopRedditsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF831E500D170027AFF9 /* TopRedditsViewController.swift */; };
 		D591CF871E501D9E0027AFF9 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF861E501D9E0027AFF9 /* Date+.swift */; };
 		D591CF891E501FBA0027AFF9 /* Int+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF881E501FBA0027AFF9 /* Int+.swift */; };
+		D591CF8B1E50A25D0027AFF9 /* ImageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF8A1E50A25D0027AFF9 /* ImageManagerProtocol.swift */; };
+		D591CF8D1E50A2E70027AFF9 /* NSURLSessionImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF8C1E50A2E70027AFF9 /* NSURLSessionImageManager.swift */; };
+		D591CF8F1E50A3C90027AFF9 /* ImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF8E1E50A3C90027AFF9 /* ImageCacheProtocol.swift */; };
+		D591CF911E50A4390027AFF9 /* NSCacheImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF901E50A4390027AFF9 /* NSCacheImageCache.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		D591CF831E500D170027AFF9 /* TopRedditsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopRedditsViewController.swift; sourceTree = "<group>"; };
 		D591CF861E501D9E0027AFF9 /* Date+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D591CF881E501FBA0027AFF9 /* Int+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+.swift"; sourceTree = "<group>"; };
+		D591CF8A1E50A25D0027AFF9 /* ImageManagerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageManagerProtocol.swift; sourceTree = "<group>"; };
+		D591CF8C1E50A2E70027AFF9 /* NSURLSessionImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLSessionImageManager.swift; sourceTree = "<group>"; };
+		D591CF8E1E50A3C90027AFF9 /* ImageCacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheProtocol.swift; sourceTree = "<group>"; };
+		D591CF901E50A4390027AFF9 /* NSCacheImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCacheImageCache.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				D591CF4F1E4F75A80027AFF9 /* EngineProtocol.swift */,
+				D591CF8A1E50A25D0027AFF9 /* ImageManagerProtocol.swift */,
+				D591CF8E1E50A3C90027AFF9 /* ImageCacheProtocol.swift */,
 			);
 			path = Engine;
 			sourceTree = "<group>";
@@ -184,6 +194,8 @@
 			isa = PBXGroup;
 			children = (
 				D591CF551E4F7C230027AFF9 /* NSURLSessionEngine.swift */,
+				D591CF8C1E50A2E70027AFF9 /* NSURLSessionImageManager.swift */,
+				D591CF901E50A4390027AFF9 /* NSCacheImageCache.swift */,
 				D591CF5B1E4F825C0027AFF9 /* Operations */,
 				D591CF661E4F9B380027AFF9 /* Serializers */,
 			);
@@ -316,6 +328,7 @@
 				D591CF781E4FCCBC0027AFF9 /* Reddit.swift in Sources */,
 				D591CF701E4FA3DF0027AFF9 /* AppAuthOperation.swift in Sources */,
 				D591CF681E4F9B530027AFF9 /* JSONResponseSerializer.swift in Sources */,
+				D591CF8D1E50A2E70027AFF9 /* NSURLSessionImageManager.swift in Sources */,
 				D591CF581E4F7CAD0027AFF9 /* Listing.swift in Sources */,
 				D591CF631E4F87660027AFF9 /* RequestOperation.swift in Sources */,
 				D591CF561E4F7C230027AFF9 /* NSURLSessionEngine.swift in Sources */,
@@ -327,6 +340,7 @@
 				D591CF871E501D9E0027AFF9 /* Date+.swift in Sources */,
 				D591CF6A1E4F9BA40027AFF9 /* ResponseSerializerProtocol.swift in Sources */,
 				D591CF6E1E4FA34F0027AFF9 /* AppAuthInfo.swift in Sources */,
+				D591CF8B1E50A25D0027AFF9 /* ImageManagerProtocol.swift in Sources */,
 				D591CF7F1E50075F0027AFF9 /* RedditListingCell.swift in Sources */,
 				D591CF471E4F73AA0027AFF9 /* RedditListingViewController.swift in Sources */,
 				D591CF721E4FA76B0027AFF9 /* AppRoot.swift in Sources */,
@@ -334,6 +348,8 @@
 				D591CF6C1E4F9FE40027AFF9 /* RedditRequestOperation.swift in Sources */,
 				D591CF431E4F73A30027AFF9 /* AppDelegate.swift in Sources */,
 				D591CF811E50084A0027AFF9 /* RedditListingCellProtocol.swift in Sources */,
+				D591CF8F1E50A3C90027AFF9 /* ImageCacheProtocol.swift in Sources */,
+				D591CF911E50A4390027AFF9 /* NSCacheImageCache.swift in Sources */,
 				D591CF741E4FC0580027AFF9 /* TopFeedOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
