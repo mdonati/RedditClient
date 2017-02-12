@@ -113,7 +113,7 @@ class RequestOperation<ResponseSerializerType : ResponseSerializerProtocol> : Ba
     private func percentEncodedStringFromHttpParameters() -> String {
         let parameterArray = self.parameters.map { (key, value) -> String in
             let percentEscapedKey = self.percentEncodedString(string: key)
-            let percentEscapedValue = self.percentEncodedString(string: value as! String)
+            let percentEscapedValue = self.percentEncodedString(string: "\(value)")
             return "\(percentEscapedKey)=\(percentEscapedValue)"
         }
         return parameterArray.joined(separator: "&")

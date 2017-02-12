@@ -24,7 +24,7 @@ struct AppAuthInfo : MappableProtocol {
         }
         
         self.accessToken = accessToken
-        self.expiresIn = Date(timeIntervalSince1970: expiresIn)
+        self.expiresIn = Date().addingTimeInterval(expiresIn)
         self.tokenType = tokenType
         self.scope = scope
     }

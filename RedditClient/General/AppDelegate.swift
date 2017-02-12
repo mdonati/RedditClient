@@ -13,15 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        appRoot.engine.fetchTopFeed(timeLimit: .Day, limit: 0, after: nil, count: nil, success: { (listing) in
-            for reddit in listing.children {
-                print(reddit.author)
-            }
-        }) { (error) in
-            
-        }
         return true
     }
 

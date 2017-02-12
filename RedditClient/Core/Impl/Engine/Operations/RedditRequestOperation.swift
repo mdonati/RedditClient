@@ -45,7 +45,9 @@ class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation
     
     override func handleResult(result: [String : Any]) {
         if let parsedResult = ResponseType(dictionary: result) {
-            self.success?(parsedResult)
+            DispatchQueue.main.async {
+                self.success?(parsedResult)
+            }
         } else {
             self.handleErrorFromResult(result: result)
         }
@@ -54,7 +56,9 @@ class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation
     func handleErrorFromResult(result : [String : Any]) {
         //TODO: handle error coming from API here
         let error = NSError(domain: "dev.reddit", code: 1000, userInfo: nil)
-        self.failure?(error)
+        DispatchQueue.main.async {
+            self.failure?(error)
+        }
     }
     
     final override func handleFailure(response: URLResponse?, error: Error?) {
@@ -62,7 +66,9 @@ class RedditRequestOperation<ResponseType : MappableProtocol> : RequestOperation
         if errorToFailWith == nil {
             errorToFailWith = super.createCustomError(requestError: UnknownError, underlyingError: nil)
         }
-        self.failure?(errorToFailWith)
+        DispatchQueue.main.async {
+            self.failure?(errorToFailWith)
+        }
     }
     
     private func setBasicAuth() {
