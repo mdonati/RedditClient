@@ -24,7 +24,8 @@ extension RedditListingCellProtocol {
     func updateWithModel(reddit : RedditProtocol) {
         self.titleLabel.text = reddit.title
         self.authorLabel.text = reddit.author
-        self.commentsCountLabel.text = "\(reddit.commentsCount) comments"
+        self.dateLabel.text = "\(reddit.date.timeAgo()) by"
+        self.commentsCountLabel.text = "\(reddit.commentsCount.decimalNumberString) comments"
     }
     
 }
