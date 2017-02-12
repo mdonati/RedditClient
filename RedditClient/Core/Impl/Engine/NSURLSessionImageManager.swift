@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-class NSURLSessionImageManager<ImageCacheGenericType : ImageCacheProtocol> : ImageManagerProtocol {
+class NSURLSessionImageManager : ImageManagerProtocol {
     
-    typealias ImageCacheType = ImageCacheGenericType
+    private let imageCache : ImageCacheProtocol
     
-    private var imageCache : ImageCacheType
-    
-    required init(imageCache: ImageCacheType) {
+    required init(imageCache: ImageCacheProtocol) {
         self.imageCache = imageCache
     }
     

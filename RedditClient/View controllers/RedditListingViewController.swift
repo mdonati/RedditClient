@@ -20,8 +20,8 @@ class RedditListingViewController : UIViewController {
     @IBOutlet weak var tableView : UITableView!
     @IBOutlet var activityView : UIView!
     
-    fileprivate var lastListingFetched : Listing<Reddit>?
-    fileprivate var reddits : [Reddit] = []
+    fileprivate var lastListingFetched : ListingProtocol?
+    fileprivate var reddits : [RedditProtocol] = []
     fileprivate var listState : ListState = .normal {
         didSet {
             switch self.listState {
@@ -69,7 +69,7 @@ class RedditListingViewController : UIViewController {
         }
     }
     
-    func fetchReddits(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?, success : @escaping (_ listing : Listing<Reddit>) -> Void, failure : @escaping (_ error : Error) -> Void) {
+    func fetchReddits(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?, success : @escaping (_ listing : ListingProtocol) -> Void, failure : @escaping (_ error : Error) -> Void) {
         assertionFailure("To be implemented in child classes")
     }
     

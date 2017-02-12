@@ -8,14 +8,12 @@
 
 import Foundation
 
-struct Listing<ListingChildrenType : MappableProtocol> : ListingProtocol, MappableProtocol {
-    
-    typealias ChildrenType = ListingChildrenType
+struct Listing<RedditType : RedditProtocol> : ListingProtocol, MappableProtocol where RedditType : MappableProtocol {
     
     var after : String?
     var before : String?
     var show : String?
-    var children: [ListingChildrenType]
+    var children: [RedditProtocol]
     
     init?(dictionary: [String : Any]) {
         
@@ -27,10 +25,10 @@ struct Listing<ListingChildrenType : MappableProtocol> : ListingProtocol, Mappab
         self.before = data["before"] as? String
         self.show = data["show"] as? String
         
-        var children = [ListingChildrenType]()
+        var children = [RedditProtocol]()
         if let childrenDicts = data["children"] as? [[String : Any]] {
             for childrenDict in childrenDicts {
-                if let child = ListingChildrenType(dictionary: childrenDict) {
+                if let child = RedditType(dictionary: childrenDict) {
                     children.append(child)
                 }
             }

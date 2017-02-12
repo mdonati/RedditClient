@@ -8,15 +8,14 @@
 
 import Foundation
 
-let appRoot = AppRoot<NSURLSessionEngine, NSURLSessionImageManager<NSCacheImageCache>>()
-
-class AppRoot<EngineType : EngineProtocol, ImageManagerType : ImageManagerProtocol> {
+class AppRoot {
     
-    let engine : EngineType = EngineType()
+    static let engine : EngineProtocol = NSURLSessionEngine()
     
-    let imageManager : ImageManagerType = ImageManagerType(imageCache : ImageManagerType.ImageCacheType())
+    static let imageManager : ImageManagerProtocol = NSURLSessionImageManager(imageCache : NSCacheImageCache())
     
-    init() {
+    //This class isn't meant to be instantiated
+    private init() {
         
     }
     

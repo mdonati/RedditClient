@@ -10,8 +10,8 @@ import Foundation
 
 class TopRedditsViewController : RedditListingViewController {
     
-    override func fetchReddits(timeLimit: TimeLimit, limit: Int, after: String?, count: Int?, success: @escaping (Listing<Reddit>) -> Void, failure: @escaping (Error) -> Void) {
-        appRoot.engine.fetchTopFeed(timeLimit: timeLimit, limit: limit, after: after, count: count, success: success, failure: failure)
+    override func fetchReddits(timeLimit: TimeLimit, limit: Int, after: String?, count: Int?, success: @escaping (ListingProtocol) -> Void, failure: @escaping (Error) -> Void) {
+        AppRoot.engine.fetchTopFeed(timeLimit: timeLimit, limit: limit, after: after, count: count, success: success, failure: failure)
     }
     
 }

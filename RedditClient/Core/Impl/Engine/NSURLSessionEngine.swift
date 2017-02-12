@@ -17,8 +17,6 @@ enum EndPoint : String {
 
 class NSURLSessionEngine : EngineProtocol {
     
-    typealias TopFeedListingType = Listing<Reddit>
-    
     private let queue : OperationQueue
     var appAuthInfo : AppAuthInfo?
     
@@ -28,7 +26,7 @@ class NSURLSessionEngine : EngineProtocol {
     
     //MARK: -Engine
     
-    func fetchTopFeed(timeLimit : TimeLimit, limit: Int, after: String?, count: Int?, success: @escaping (TopFeedListingType) -> Void, failure: @escaping (Error) -> Void) {
+    func fetchTopFeed(timeLimit : TimeLimit, limit: Int, after: String?, count: Int?, success: @escaping (ListingProtocol) -> Void, failure: @escaping (Error) -> Void) {
         let topFeedOperation = TopFeedOperation(timeLimit : timeLimit, limit : limit, after : after, count : count)
         topFeedOperation.success = success
         topFeedOperation.failure = failure

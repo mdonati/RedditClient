@@ -11,9 +11,7 @@ import UIKit
 
 protocol ImageManagerProtocol {
     
-    associatedtype ImageCacheType : ImageCacheProtocol
-    
-    init(imageCache : ImageCacheType)
+    init(imageCache : ImageCacheProtocol)
     
     func getImage(url : URL, completion : @escaping (_ image : UIImage?) -> Void)
     

@@ -21,12 +21,10 @@ enum TimeLimit : String {
 
 protocol EngineProtocol {
     
-    associatedtype TopFeedListingType : ListingProtocol
-    
     init()
     
     var appAuthInfo : AppAuthInfo? { get }
     
-    func fetchTopFeed(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?, success : @escaping (_ results : TopFeedListingType) -> Void, failure : @escaping (_ error : Error) -> Void)
+    func fetchTopFeed(timeLimit : TimeLimit, limit : Int, after : String?, count : Int?, success : @escaping (_ results : ListingProtocol) -> Void, failure : @escaping (_ error : Error) -> Void)
     
 }

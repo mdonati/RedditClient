@@ -10,11 +10,9 @@ import Foundation
 
 protocol ListingProtocol {
     
-    associatedtype ChildrenType : MappableProtocol
-    
     var after : String? { get }
     var before : String? { get }
     var show : String? { get }
-    var children : [ChildrenType] { get }
+    var children : [RedditProtocol] { get }
     
 }
