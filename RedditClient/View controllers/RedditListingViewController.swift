@@ -18,6 +18,7 @@ fileprivate enum ListState {
 class RedditListingViewController : UIViewController {
 
     @IBOutlet weak var tableView : UITableView!
+    @IBOutlet var activityView : UIView!
     
     fileprivate var lastListingFetched : Listing<Reddit>?
     fileprivate var reddits : [Reddit] = []
@@ -26,12 +27,10 @@ class RedditListingViewController : UIViewController {
             switch self.listState {
                 
             case .normal:
-                //Add some insets to the bottom and the top so table view isn't too close to the edges
-                self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0)
+                self.tableView.tableFooterView = nil
                 
             case .loading:
-                //Add some room for loader
-                self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 64, 0)
+                self.tableView.tableFooterView = self.activityView
                 
             }
         }
@@ -44,6 +43,7 @@ class RedditListingViewController : UIViewController {
     }
     
     private func setupTableView() {
+        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 20, 0)
         self.tableView.estimatedRowHeight = 80
         self.tableView.rowHeight = UITableViewAutomaticDimension
     }
