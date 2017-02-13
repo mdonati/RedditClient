@@ -8,11 +8,21 @@
 
 import Foundation
 
+enum Thumbnail {
+    case nonImage(type : NonImageThumbnailType)
+    case image(url : URL)
+}
+
+enum NonImageThumbnailType : String {
+    case selfPost = "self"
+    case nsfw = "nsfw"
+}
+
 protocol RedditProtocol {
     
     var title : String { get }
     var author : String { get }
-    var thumbnailImageURL : URL? { get }
+    var thumbnail : Thumbnail? { get }
     var fullSizeImageURL : URL? { get }
     var date : Date { get }
     var commentsCount : Int { get }

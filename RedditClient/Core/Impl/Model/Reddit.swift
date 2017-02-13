@@ -8,16 +8,11 @@
 
 import Foundation
 
-private enum ThumbnailInvalidTypes : String {
-    case selfPost = "self"
-    case nsfw = "nsfw"
-}
-
 struct Reddit : RedditProtocol, MappableProtocol {
     
     var title : String
     var author : String
-    var thumbnailImageURL : URL?
+    var thumbnail: Thumbnail?
     var fullSizeImageURL : URL?
     var date : Date
     var commentsCount : Int
@@ -35,8 +30,12 @@ struct Reddit : RedditProtocol, MappableProtocol {
         self.commentsCount = commentsCount
         self.title = title
         
-        if let thumbURLString = data["thumbnail"] as? String, self.isThumbnailValid(thumbURL: thumbURLString) {
-            self.thumbnailImageURL = URL(string: thumbURLString)
+        if let thumbURLString = data["thumbnail"] as? String {
+            if let nonImageType = self.thumbnailNonImageType(thumbURLString: thumbURLString) {
+                self.thumbnail = .nonImage(type : nonImageType)
+            } else {
+                self.thumbnail = .image(url : URL(string: thumbURLString)!)
+            }
         }
         
         //Try to get full-size image URL
@@ -48,8 +47,8 @@ struct Reddit : RedditProtocol, MappableProtocol {
         }
     }
     
-    private func isThumbnailValid(thumbURL : String) -> Bool {
-        return ThumbnailInvalidTypes(rawValue: thumbURL) == nil
+    private func thumbnailNonImageType(thumbURLString : String) -> NonImageThumbnailType? {
+        return NonImageThumbnailType(rawValue: thumbURLString)
     }
     
 }

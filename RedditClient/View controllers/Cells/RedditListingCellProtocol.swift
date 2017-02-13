@@ -36,14 +36,26 @@ extension RedditListingCellProtocol {
         self.commentsCountLabel.text = "\(reddit.commentsCount.decimalNumberString) comments"
         
         //Thumb image
-        if let thumbURL = reddit.thumbnailImageURL {
-            AppRoot.imageManager.getImage(url: thumbURL, completion: { (image, url) in
-                //Avoid setting the image into a cell's model that didn't request it
-                if thumbURL.absoluteString != url.absoluteString {
-                    return
-                }
-                self.thumbImageView.image = image
-            })
+        if let thumb = reddit.thumbnail {
+            
+            switch thumb {
+            
+            case .image(let thumbURL):
+            
+                AppRoot.imageManager.getImage(url: thumbURL, completion: { (image, url) in
+                    //Avoid setting the image into a cell's model that didn't request it
+                    if thumbURL.absoluteString != url.absoluteString {
+                        return
+                    }
+                    self.thumbImageView.image = image
+                })
+                
+            case .nonImage(let type):
+                
+                self.thumbImageView.image = UIImage(named: type.rawValue)
+                
+            }
+            
         }
         
     }
