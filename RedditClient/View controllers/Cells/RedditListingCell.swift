@@ -26,8 +26,28 @@ class RedditListingCell : UITableViewCell, RedditListingCellProtocol {
         self.thumbImageView.image = nil
     }
     
-    @IBAction func thumbnailTap() {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.addThumbnailTapGesture()
+        self.addThumbnailLongTapGesture()
+    }
+    
+    private func addThumbnailTapGesture() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(thumbnailTap))
+        self.thumbImageView.addGestureRecognizer(tap)
+    }
+    
+    private func addThumbnailLongTapGesture() {
+        let longTap = UILongPressGestureRecognizer(target: self, action: #selector(thumbnailLongTap))
+        self.thumbImageView.addGestureRecognizer(longTap)
+    }
+    
+    @objc private func thumbnailTap() {
         self.delegate?.redditListingCellDidSelectThumbnail(cell: self)
+    }
+    
+    @objc private func thumbnailLongTap() {
+        self.delegate?.redditListingCellDidLongTap(cell: self)
     }
     
 }

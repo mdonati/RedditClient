@@ -66,13 +66,6 @@
                                                     <color key="textColor" red="0.094117647060000004" green="0.5568627451" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ys-ze-L40">
-                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <connections>
-                                                        <action selector="thumbnailTap" destination="AL7-aN-VDK" eventType="touchDown" id="9Fd-WZ-pf6"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="f1A-bF-mNu" firstAttribute="leading" secondItem="5he-wp-5GV" secondAttribute="trailing" constant="9" id="NAV-Xy-3fg"/>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Photos
 
 fileprivate enum ListState {
     
@@ -110,27 +111,68 @@ extension RedditListingViewController : UITableViewDelegate {
 extension RedditListingViewController : RedditListingCellDelegate {
     
     func redditListingCellDidSelectThumbnail(cell: RedditListingCell) {
-        guard let indexPath = self.tableView.indexPath(for: cell) else {
+        guard let reddit = self.redditForCell(cell: cell) else {
             return
         }
-        let reddit = self.reddits[indexPath.row]
-        if let fullSizeImageURL = reddit.fullSizeImageURL, let thumb = reddit.thumbnail {
-            switch thumb {
-                
-            case .image:
-                self.openFullSizeImageURL(url: fullSizeImageURL)
-                
-            case .nonImage(let type):
-                if type == .nsfw {
-                    self.openFullSizeImageURL(url: fullSizeImageURL)
-                }
-                
-            }
+        self.executeBlockInValidContextForFullSizeURL(reddit: reddit) { (fullSizeImageURL) in
+            self.openFullSizeImageURL(url: fullSizeImageURL)
+        }
+    }
+    
+    func redditListingCellDidLongTap(cell: RedditListingCell) {
+        
+        if self.presentedViewController != nil {
+            return
+        }
+        
+        guard let reddit = self.redditForCell(cell: cell) else {
+            return
+        }
+        
+        self.executeBlockInValidContextForFullSizeURL(reddit: reddit) { (fullSizeImageURL) in
+            let actionSheet = UIAlertController(title: "Photo Library", message: nil, preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            actionSheet.addAction(UIAlertAction(title: "Save Image", style: .default, handler: { (action) in
+                AppRoot.imageManager.getImage(url: fullSizeImageURL, completion: { (image, imageURL) in
+                    if let image = image {
+                        PHPhotoLibrary.requestAuthorization({ (status) in
+                            if status == .authorized {
+                                UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+                            }
+                        })
+                    }
+                })
+            }))
+            self.present(actionSheet, animated: true, completion: nil)
         }
     }
     
     private func openFullSizeImageURL(url : URL) {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
+    private func redditForCell(cell : RedditListingCell) -> RedditProtocol? {
+        guard let indexPath = self.tableView.indexPath(for: cell) else {
+            return nil
+        }
+        return self.reddits[indexPath.row]
+
+    }
+    
+    private func executeBlockInValidContextForFullSizeURL(reddit : RedditProtocol, block : (_ fullSizeImageURL : URL) -> Void) {
+        if let fullSizeImageURL = reddit.fullSizeImageURL, let thumb = reddit.thumbnail {
+            switch thumb {
+                
+            case .image:
+                block(fullSizeImageURL)
+                
+            case .nonImage(let type):
+                if type == .nsfw {
+                    block(fullSizeImageURL)
+                }
+                
+            }
+        }
     }
     
 }

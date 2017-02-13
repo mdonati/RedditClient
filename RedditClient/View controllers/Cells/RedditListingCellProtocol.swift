@@ -24,6 +24,7 @@ protocol RedditListingCellProtocol {
 @objc protocol RedditListingCellDelegate {
     
     func redditListingCellDidSelectThumbnail(cell : RedditListingCell)
+    func redditListingCellDidLongTap(cell : RedditListingCell)
     
 }
 

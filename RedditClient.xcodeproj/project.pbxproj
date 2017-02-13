@@ -37,6 +37,7 @@
 		D591CF8D1E50A2E70027AFF9 /* NSURLSessionImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF8C1E50A2E70027AFF9 /* NSURLSessionImageManager.swift */; };
 		D591CF8F1E50A3C90027AFF9 /* ImageCacheProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF8E1E50A3C90027AFF9 /* ImageCacheProtocol.swift */; };
 		D591CF911E50A4390027AFF9 /* NSCacheImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = D591CF901E50A4390027AFF9 /* NSCacheImageCache.swift */; };
+		D591CF941E5154C80027AFF9 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D591CF931E5154C80027AFF9 /* Photos.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +73,7 @@
 		D591CF8C1E50A2E70027AFF9 /* NSURLSessionImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLSessionImageManager.swift; sourceTree = "<group>"; };
 		D591CF8E1E50A3C90027AFF9 /* ImageCacheProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheProtocol.swift; sourceTree = "<group>"; };
 		D591CF901E50A4390027AFF9 /* NSCacheImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCacheImageCache.swift; sourceTree = "<group>"; };
+		D591CF931E5154C80027AFF9 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D591CF941E5154C80027AFF9 /* Photos.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +93,7 @@
 			children = (
 				D591CF2E1E4F731E0027AFF9 /* RedditClient */,
 				D591CF2D1E4F731E0027AFF9 /* Products */,
+				D591CF921E5154C80027AFF9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -249,6 +253,14 @@
 				D591CF881E501FBA0027AFF9 /* Int+.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D591CF921E5154C80027AFF9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D591CF931E5154C80027AFF9 /* Photos.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
