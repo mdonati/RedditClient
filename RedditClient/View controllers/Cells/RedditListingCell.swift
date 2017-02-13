@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+
 class RedditListingCell : UITableViewCell, RedditListingCellProtocol {
     
     @IBOutlet weak var titleLabel : UILabel!
@@ -17,9 +19,15 @@ class RedditListingCell : UITableViewCell, RedditListingCellProtocol {
     @IBOutlet weak var thumbImageView : UIImageView!
     @IBOutlet weak var commentsCountLabel : UILabel!
     
+    weak var delegate : RedditListingCellDelegate?
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         self.thumbImageView.image = nil
+    }
+    
+    @IBAction func thumbnailTap() {
+        self.delegate?.redditListingCellDidSelectThumbnail(cell: self)
     }
     
 }

@@ -17,6 +17,14 @@ protocol RedditListingCellProtocol {
     weak var commentsCountLabel : UILabel! { get }
     weak var thumbImageView : UIImageView! { get }
     
+    weak var delegate : RedditListingCellDelegate? { get set }
+    
+}
+
+@objc protocol RedditListingCellDelegate {
+    
+    func redditListingCellDidSelectThumbnail(cell : RedditListingCell)
+    
 }
 
 extension RedditListingCellProtocol {

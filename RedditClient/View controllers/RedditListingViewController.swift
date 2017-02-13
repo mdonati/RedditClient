@@ -77,13 +77,15 @@ class RedditListingViewController : UIViewController {
 
 extension RedditListingViewController : UITableViewDataSource {
     
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.reddits.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "redditCell", for: indexPath)
-        let redditCell = cell as! RedditListingCellProtocol
+        var redditCell = cell as! RedditListingCellProtocol
+        redditCell.delegate = self
         redditCell.updateWithModel(reddit: self.reddits[indexPath.row])
         return cell
     }
@@ -94,16 +96,41 @@ extension RedditListingViewController : UITableViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if self.hasReachedContentBottom() && self.listState == .normal && self.lastListingFetched?.after != nil {
-            //TODO: Initiate activity indicator
-            self.load(any: {
-                //TODO: Stop activity indicator
-            })
+            self.load()
         }
     }
     
     private func hasReachedContentBottom() -> Bool {
         let scrollView = self.tableView!
         return scrollView.contentOffset.y + scrollView.bounds.size.height > scrollView.contentSize.height
+    }
+    
+}
+
+extension RedditListingViewController : RedditListingCellDelegate {
+    
+    func redditListingCellDidSelectThumbnail(cell: RedditListingCell) {
+        guard let indexPath = self.tableView.indexPath(for: cell) else {
+            return
+        }
+        let reddit = self.reddits[indexPath.row]
+        if let fullSizeImageURL = reddit.fullSizeImageURL, let thumb = reddit.thumbnail {
+            switch thumb {
+                
+            case .image:
+                self.openFullSizeImageURL(url: fullSizeImageURL)
+                
+            case .nonImage(let type):
+                if type == .nsfw {
+                    self.openFullSizeImageURL(url: fullSizeImageURL)
+                }
+                
+            }
+        }
+    }
+    
+    private func openFullSizeImageURL(url : URL) {
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
     
 }

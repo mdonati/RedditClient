@@ -24,6 +24,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="89" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="flf-hT-Wun">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="redditCell" rowHeight="102" id="AL7-aN-VDK" customClass="RedditListingCell" customModule="RedditClient" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="102"/>
@@ -32,8 +33,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="101"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5he-wp-5GV">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5he-wp-5GV">
                                                     <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="79" id="OTg-KS-dGe"/>
                                                         <constraint firstAttribute="height" constant="79" id="ebI-So-pUX"/>
@@ -63,6 +66,13 @@
                                                     <color key="textColor" red="0.094117647060000004" green="0.5568627451" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ys-ze-L40">
+                                                    <rect key="frame" x="0.0" y="0.0" width="79" height="79"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <connections>
+                                                        <action selector="thumbnailTap" destination="AL7-aN-VDK" eventType="touchDown" id="9Fd-WZ-pf6"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="f1A-bF-mNu" firstAttribute="leading" secondItem="5he-wp-5GV" secondAttribute="trailing" constant="9" id="NAV-Xy-3fg"/>
@@ -79,6 +89,7 @@
                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="cOk-70-ZlK" secondAttribute="trailing" constant="8" id="zxU-ry-FkK"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="authorLabel" destination="Alp-hG-3xa" id="1cj-5e-t3f"/>
                                             <outlet property="commentsCountLabel" destination="YHG-2x-faQ" id="v2H-TH-YQ1"/>
@@ -120,7 +131,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="93.103448275862078"/>
+            <point key="canvasLocation" x="32.5" y="92.5"/>
         </scene>
     </scenes>
 </document>
